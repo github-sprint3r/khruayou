@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
+		<title>menu_search</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Free Bootstrap Admin Template : Binary Admin</title>
@@ -101,21 +102,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr >
-										<td>
-										<center>
-											1
-										</center></td>
-										<td> ยำวุ้นเส้น </td>
-										<td>
-										<center>
-											ยำ
-										</center></td>
-										<td>
-										<center>
-											15000/บาท
-										</center></td>
-									</tr>
+							
 								</tbody>
 							</table>
 						</div>
@@ -153,10 +140,13 @@
 			return;
 		
 		}
-		$.ajax({
-		url : "http://localhost/webdev/menu_search/menuitem.json#",
+	/*	$.ajax({
+		url : "http://localhost/webdev/menu_search/data.json#",
 		success : function(result) {
-						alert("ok");
+			 obj = JSON.parse(result);
+
+			alert(obj.data);
+					//	alert(result[0].data);
 					
 					},
 					error : function(e) {
@@ -164,7 +154,7 @@
 					}
 				});
 	
-
+*/
 			}
 
 		</script>
