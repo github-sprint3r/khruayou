@@ -101,21 +101,7 @@
 									</tr>
 								</thead>
 								<tbody>
-									<tr >
-										<td>
-										<center>
-											1
-										</center></td>
-										<td> ยำวุ้นเส้น </td>
-										<td>
-										<center>
-											ยำ
-										</center></td>
-										<td>
-										<center>
-											15000/บาท
-										</center></td>
-									</tr>
+							
 								</tbody>
 							</table>
 						</div>
@@ -154,9 +140,12 @@
 		
 		}
 		$.ajax({
-		url : "http://localhost/webdev/menu_search/menuitem.json#",
+		url : "http://localhost/webdev/menu_search/data.json#",
 		success : function(result) {
-						alert("ok");
+			 obj = JSON.parse(result);
+
+			alert(obj.data);
+					//	alert(result[0].data);
 					
 					},
 					error : function(e) {
