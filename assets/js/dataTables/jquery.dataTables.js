@@ -2002,18 +2002,18 @@
 				nInsertNode = nInsertNode.parentNode;
 			}
 			// @todo Move options into their own plugins?
-			else if ( cOption == 'l' && oSettings.oFeatures.bPaginate && oSettings.oFeatures.bLengthChange )
-			{
+			//else if ( cOption == 'l' && oSettings.oFeatures.bPaginate && oSettings.oFeatures.bLengthChange )
+			//{
 				/* Length */
-				nTmp = _fnFeatureHtmlLength( oSettings );
-				iPushFeature = 1;
-			}
-			else if ( cOption == 'f' && oSettings.oFeatures.bFilter )
-			{
+				//nTmp = _fnFeatureHtmlLength( oSettings );
+			//	iPushFeature = 1;
+			//}
+			//else if ( cOption == 'f' && oSettings.oFeatures.bFilter )
+			//{
 				/* Filter */
-				nTmp = _fnFeatureHtmlFilter( oSettings );
-				iPushFeature = 1;
-			}
+				//nTmp = _fnFeatureHtmlFilter( oSettings );
+				//iPushFeature = 1;
+			//}
 			else if ( cOption == 'r' && oSettings.oFeatures.bProcessing )
 			{
 				/* pRocessing */
@@ -10525,7 +10525,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sNext": "Next",
+				"sNext": "ถัดไป",
 	
 	
 				/**
@@ -10548,7 +10548,7 @@
 				 *      } );
 				 *    } );
 				 */
-				"sPrevious": "Previous"
+				"sPrevious": "ก่อนหน้า"
 			},
 	
 			/**
@@ -10603,7 +10603,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sInfo": "Showing _START_ to _END_ of _TOTAL_ entries",
+			"sInfo": "รายการที่ _START_ ถึง _END_ จากทั้งหมด _TOTAL_ รายการ",
 	
 	
 			/**
