@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generated="20140507 16:38:25.935" generator="Robot 2.8.4 (Python 2.7.6 on win32)">
+<suite source="C:\Users\SC-003\Desktop\AgileWorkshop\WebDemo\demoapp\html\menu_search\menu_searchtest\validsearch_inputtext.txt" id="s1" name="Validsearch Inputtext">
+<test id="s1-t1" name="Open Browser To menu_search">
+<kw type="kw" name="Selenium2Library.Open Browser">
+<doc>Opens a new browser instance to given URL.</doc>
+<arguments>
+<arg>localhost:7272/menu_search/menusearch.html</arg>
+<arg>Firefox</arg>
+</arguments>
+<msg timestamp="20140507 16:38:26.063" level="INFO">Opening browser 'Firefox' to base url 'localhost:7272/menu_search/menusearch.html'</msg>
+<status status="PASS" endtime="20140507 16:38:33.738" starttime="20140507 16:38:26.063"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140507 16:38:33.739" critical="yes" starttime="20140507 16:38:26.062"></status>
+</test>
+<test id="s1-t2" name="Check Title">
+<kw type="kw" name="Selenium2Library.Title Should Be">
+<doc>Verifies that current page title equals `title`.</doc>
+<arguments>
+<arg>Menu_Search</arg>
+</arguments>
+<msg timestamp="20140507 16:38:33.751" level="INFO">Page title is 'Menu_Search'.</msg>
+<status status="PASS" endtime="20140507 16:38:33.751" starttime="20140507 16:38:33.743"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="PASS" endtime="20140507 16:38:33.752" critical="yes" starttime="20140507 16:38:33.742"></status>
+</test>
+<test id="s1-t3" name="Input Text search">
+<kw type="kw" name="Selenium2Library.Input Text">
+<doc>Types the given `text` into text field identified by `locator`.</doc>
+<arguments>
+<arg>search_field</arg>
+<arg>${input}</arg>
+</arguments>
+<msg timestamp="20140507 16:38:33.755" level="INFO">Typing text 'ยำวุ้นเส้น' into text field 'search_field'</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140507 16:38:33.883" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140507 16:38:33.883" starttime="20140507 16:38:33.765"></status>
+</kw>
+<msg timestamp="20140507 16:38:33.885" level="FAIL">ValueError: Element locator 'search_field' did not match any elements.</msg>
+<status status="FAIL" endtime="20140507 16:38:33.885" starttime="20140507 16:38:33.755"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140507 16:38:33.885" critical="yes" starttime="20140507 16:38:33.754">ValueError: Element locator 'search_field' did not match any elements.</status>
+</test>
+<test id="s1-t4" name="Valid searchresults">
+<kw type="kw" name="Selenium2Library.Table Cell Should Contain">
+<doc>Verifies that a certain cell in a table contains `expected`.</doc>
+<arguments>
+<arg>table_searchresult</arg>
+<arg>2</arg>
+<arg>${column}</arg>
+<arg>${input}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140507 16:38:34.029" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140507 16:38:34.029" starttime="20140507 16:38:33.907"></status>
+</kw>
+<msg timestamp="20140507 16:38:34.030" level="INFO">Cell in table table_searchresult in row #2 and column #2 could not be found.</msg>
+<msg timestamp="20140507 16:38:34.045" level="INFO">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;
+		&lt;meta charset="utf-8" /&gt;
+		&lt;meta content="width=device-width, initial-scale=1.0" name="viewport" /&gt;
+		&lt;title&gt;Menu_Search&lt;/title&gt;
+		&lt;!-- BOOTSTRAP STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/css/bootstrap.css" /&gt;
+		&lt;!-- FONTAWESOME STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/css/font-awesome.css" /&gt;
+		&lt;!-- MORRIS CHART STYLES--&gt;
+
+		&lt;!-- CUSTOM STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/css/custom.css" /&gt;
+		&lt;!-- GOOGLE FONTS--&gt;
+		&lt;!-- TABLE STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/js/dataTables/dataTables.bootstrap.css" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id="wrapper"&gt;
+			&lt;nav style="margin-bottom: 0" role="navigation" class="navbar navbar-default navbar-cls-top "&gt;
+				&lt;div class="navbar-header"&gt;
+					&lt;button data-target=".sidebar-collapse" data-toggle="collapse" class="navbar-toggle" type="button"&gt;
+						&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+						&lt;span class="icon-bar"&gt;&lt;/span&gt;
+						&lt;span class="icon-bar"&gt;&lt;/span&gt;
+						&lt;span class="icon-bar"&gt;&lt;/span&gt;
+					&lt;/button&gt;
+					&lt;a href="index.html" class="navbar-brand"&gt;KhruaYou&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div style="color: white;
+				padding: 15px 50px 5px 50px;
+				float: right;
+				font-size: 16px;"&gt;
+					Last access : 30 May 2014   &lt;a class="btn btn-danger square-btn-adjust" href="#"&gt;Logout&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/nav&gt;
+			&lt;!-- /. NAV TOP  --&gt;
+			&lt;nav role="navigation" class="navbar-default navbar-side"&gt;
+				&lt;div class="sidebar-collapse"&gt;
+					&lt;ul id="main-menu" class="nav"&gt;
+						&lt;li class="text-center"&gt;
+							&lt;img class="user-image img-responsive" src="assets/img/find_user.png" /&gt;
+						&lt;/li&gt;
+
+						&lt;li&gt;
+							&lt;a href="menusearch.html"&gt;&lt;i class="fa fa-dashboard fa-3x"&gt;&lt;/i&gt; menu list&lt;/a&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+
+				&lt;/div&gt;
+
+			&lt;/nav&gt;
+			&lt;!-- /. NAV SIDE  --&gt;
+			&lt;div id="page-wrapper"&gt;
+				&lt;div id="page-inner"&gt;
+					&lt;div class="row"&gt;
+						&lt;div class="col-md-12"&gt;
+							&lt;h2&gt;ค้นหารายการอาหาร&lt;/h2&gt;
+
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;!-- /. ROW  --&gt;
+					&lt;hr /&gt;
+					&lt;div class="row"&gt;
+						&lt;div class="col-md-12"&gt;
+							&lt;input type="text" class="input-lg" id="searchfield" /&gt;
+							&lt;input type="button" value="ค้นหา" class="btn-lg" onclick="search()" id="search_button" /&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div style="height: 20px" class="row"&gt;&lt;/div&gt;
+
+					&lt;div class="row"&gt;
+
+						&lt;div class="col-lg-12"&gt;
+							&lt;table class="table table-striped table-bordered table-hover"&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th width="10%"&gt;
+										&lt;center&gt;
+											No.
+										&lt;/center&gt;&lt;/th&gt;
+										&lt;th width="50%"&gt;
+										&lt;div style="text-align: center; "&gt;
+											ชื่ออาหาร
+										&lt;/div&gt;&lt;/th&gt;
+										&lt;th&gt;
+										&lt;center&gt;
+											หมวดหมู่อาหาร
+										&lt;/center&gt;
+										&lt;center&gt;
+											Catalogeries
+										&lt;/center&gt;&lt;/th&gt;
+										&lt;th&gt;
+										&lt;center&gt;
+											ราคา
+										&lt;/center&gt;
+										&lt;center&gt;
+											Prices
+										&lt;/center&gt;&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+										&lt;center&gt;
+											1
+										&lt;/center&gt;&lt;/td&gt;
+										&lt;td&gt; ยำวุ้นเส้น &lt;/td&gt;
+										&lt;td&gt;
+										&lt;center&gt;
+											ยำ
+										&lt;/center&gt;&lt;/td&gt;
+										&lt;td&gt;
+										&lt;center&gt;
+											15000/บาท
+										&lt;/center&gt;&lt;/td&gt;
+									&lt;/tr&gt;
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+
+				&lt;/div&gt;
+				&lt;!-- /. ROW  --&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /. PAGE INNER  --&gt;
+		
+		&lt;!-- /. PAGE WRAPPER  --&gt;
+		&lt;!-- /. WRAPPER  --&gt;
+		&lt;!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME--&gt;
+		&lt;!-- JQUERY SCRIPTS --&gt;
+		&lt;script src="assets/js/jquery-1.10.2.js"&gt;&lt;/script&gt;
+		&lt;!-- BOOTSTRAP SCRIPTS --&gt;
+		&lt;script src="assets/js/bootstrap.min.js"&gt;&lt;/script&gt;
+		&lt;!-- METISMENU SCRIPTS --&gt;
+		&lt;script src="assets/js/jquery.metisMenu.js"&gt;&lt;/script&gt;
+		&lt;!-- DATA TABLE SCRIPTS --&gt;
+		&lt;script src="assets/js/dataTables/jquery.dataTables.js"&gt;&lt;/script&gt;
+		&lt;script src="assets/js/dataTables/dataTables.bootstrap.js"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			$(document).ready(function() {
+				$('#dataTables-example').dataTable();
+
+			});
+
+			function search() {
+				if($("#searchfield").val()==""){
+			alert("กรุณาใส่ข้อความ");
+			
+			return;
+		
+		}
+		$.ajax({
+		url : "http://localhost/webdev/menu_search/menuitem.json#",
+		success : function(result) {
+						alert("ok");
+					
+					},
+					error : function(e) {
+						//alert("error");
+					}
+				});
+	
+
+			}
+
+		&lt;/script&gt;
+		&lt;!-- CUSTOM SCRIPTS --&gt;
+
+	
+
+&lt;/body&gt;&lt;canvas id="fxdriver-screenshot-canvas" style="display: none;" width="893" height="1310"&gt;&lt;/canvas&gt;&lt;/html&gt;</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140507 16:38:34.163" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-3.png"&gt;&lt;img src="selenium-screenshot-3.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140507 16:38:34.164" starttime="20140507 16:38:34.045"></status>
+</kw>
+<msg timestamp="20140507 16:38:34.164" level="FAIL">Cell in table 'table_searchresult' in row #2 and column #2 should have contained text 'ยำวุ้นเส้น'.</msg>
+<status status="FAIL" endtime="20140507 16:38:34.164" starttime="20140507 16:38:33.888"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140507 16:38:34.165" critical="yes" starttime="20140507 16:38:33.887">Cell in table 'table_searchresult' in row #2 and column #2 should have contained text 'ยำวุ้นเส้น'.</status>
+</test>
+<test id="s1-t5" name="Invalid searchresults">
+<kw type="kw" name="Selenium2Library.Table Cell Should Contain">
+<doc>Verifies that a certain cell in a table contains `expected`.</doc>
+<arguments>
+<arg>table_searchresult</arg>
+<arg>3</arg>
+<arg>${column}</arg>
+<arg>${input}</arg>
+</arguments>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140507 16:38:34.304" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-4.png"&gt;&lt;img src="selenium-screenshot-4.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140507 16:38:34.305" starttime="20140507 16:38:34.186"></status>
+</kw>
+<msg timestamp="20140507 16:38:34.305" level="INFO">Cell in table table_searchresult in row #3 and column #2 could not be found.</msg>
+<msg timestamp="20140507 16:38:34.315" level="INFO">&lt;!DOCTYPE html&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml"&gt;&lt;head&gt;
+		&lt;meta charset="utf-8" /&gt;
+		&lt;meta content="width=device-width, initial-scale=1.0" name="viewport" /&gt;
+		&lt;title&gt;Menu_Search&lt;/title&gt;
+		&lt;!-- BOOTSTRAP STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/css/bootstrap.css" /&gt;
+		&lt;!-- FONTAWESOME STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/css/font-awesome.css" /&gt;
+		&lt;!-- MORRIS CHART STYLES--&gt;
+
+		&lt;!-- CUSTOM STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/css/custom.css" /&gt;
+		&lt;!-- GOOGLE FONTS--&gt;
+		&lt;!-- TABLE STYLES--&gt;
+		&lt;link rel="stylesheet" href="assets/js/dataTables/dataTables.bootstrap.css" /&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;div id="wrapper"&gt;
+			&lt;nav style="margin-bottom: 0" role="navigation" class="navbar navbar-default navbar-cls-top "&gt;
+				&lt;div class="navbar-header"&gt;
+					&lt;button data-target=".sidebar-collapse" data-toggle="collapse" class="navbar-toggle" type="button"&gt;
+						&lt;span class="sr-only"&gt;Toggle navigation&lt;/span&gt;
+						&lt;span class="icon-bar"&gt;&lt;/span&gt;
+						&lt;span class="icon-bar"&gt;&lt;/span&gt;
+						&lt;span class="icon-bar"&gt;&lt;/span&gt;
+					&lt;/button&gt;
+					&lt;a href="index.html" class="navbar-brand"&gt;KhruaYou&lt;/a&gt;
+				&lt;/div&gt;
+				&lt;div style="color: white;
+				padding: 15px 50px 5px 50px;
+				float: right;
+				font-size: 16px;"&gt;
+					Last access : 30 May 2014   &lt;a class="btn btn-danger square-btn-adjust" href="#"&gt;Logout&lt;/a&gt;
+				&lt;/div&gt;
+			&lt;/nav&gt;
+			&lt;!-- /. NAV TOP  --&gt;
+			&lt;nav role="navigation" class="navbar-default navbar-side"&gt;
+				&lt;div class="sidebar-collapse"&gt;
+					&lt;ul id="main-menu" class="nav"&gt;
+						&lt;li class="text-center"&gt;
+							&lt;img class="user-image img-responsive" src="assets/img/find_user.png" /&gt;
+						&lt;/li&gt;
+
+						&lt;li&gt;
+							&lt;a href="menusearch.html"&gt;&lt;i class="fa fa-dashboard fa-3x"&gt;&lt;/i&gt; menu list&lt;/a&gt;
+						&lt;/li&gt;
+					&lt;/ul&gt;
+
+				&lt;/div&gt;
+
+			&lt;/nav&gt;
+			&lt;!-- /. NAV SIDE  --&gt;
+			&lt;div id="page-wrapper"&gt;
+				&lt;div id="page-inner"&gt;
+					&lt;div class="row"&gt;
+						&lt;div class="col-md-12"&gt;
+							&lt;h2&gt;ค้นหารายการอาหาร&lt;/h2&gt;
+
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;!-- /. ROW  --&gt;
+					&lt;hr /&gt;
+					&lt;div class="row"&gt;
+						&lt;div class="col-md-12"&gt;
+							&lt;input type="text" class="input-lg" id="searchfield" /&gt;
+							&lt;input type="button" value="ค้นหา" class="btn-lg" onclick="search()" id="search_button" /&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+					&lt;div style="height: 20px" class="row"&gt;&lt;/div&gt;
+
+					&lt;div class="row"&gt;
+
+						&lt;div class="col-lg-12"&gt;
+							&lt;table class="table table-striped table-bordered table-hover"&gt;
+								&lt;thead&gt;
+									&lt;tr&gt;
+										&lt;th width="10%"&gt;
+										&lt;center&gt;
+											No.
+										&lt;/center&gt;&lt;/th&gt;
+										&lt;th width="50%"&gt;
+										&lt;div style="text-align: center; "&gt;
+											ชื่ออาหาร
+										&lt;/div&gt;&lt;/th&gt;
+										&lt;th&gt;
+										&lt;center&gt;
+											หมวดหมู่อาหาร
+										&lt;/center&gt;
+										&lt;center&gt;
+											Catalogeries
+										&lt;/center&gt;&lt;/th&gt;
+										&lt;th&gt;
+										&lt;center&gt;
+											ราคา
+										&lt;/center&gt;
+										&lt;center&gt;
+											Prices
+										&lt;/center&gt;&lt;/th&gt;
+									&lt;/tr&gt;
+								&lt;/thead&gt;
+								&lt;tbody&gt;
+									&lt;tr&gt;
+										&lt;td&gt;
+										&lt;center&gt;
+											1
+										&lt;/center&gt;&lt;/td&gt;
+										&lt;td&gt; ยำวุ้นเส้น &lt;/td&gt;
+										&lt;td&gt;
+										&lt;center&gt;
+											ยำ
+										&lt;/center&gt;&lt;/td&gt;
+										&lt;td&gt;
+										&lt;center&gt;
+											15000/บาท
+										&lt;/center&gt;&lt;/td&gt;
+									&lt;/tr&gt;
+								&lt;/tbody&gt;
+							&lt;/table&gt;
+						&lt;/div&gt;
+					&lt;/div&gt;
+
+				&lt;/div&gt;
+				&lt;!-- /. ROW  --&gt;
+			&lt;/div&gt;
+
+		&lt;/div&gt;
+		&lt;!-- /. PAGE INNER  --&gt;
+		
+		&lt;!-- /. PAGE WRAPPER  --&gt;
+		&lt;!-- /. WRAPPER  --&gt;
+		&lt;!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME--&gt;
+		&lt;!-- JQUERY SCRIPTS --&gt;
+		&lt;script src="assets/js/jquery-1.10.2.js"&gt;&lt;/script&gt;
+		&lt;!-- BOOTSTRAP SCRIPTS --&gt;
+		&lt;script src="assets/js/bootstrap.min.js"&gt;&lt;/script&gt;
+		&lt;!-- METISMENU SCRIPTS --&gt;
+		&lt;script src="assets/js/jquery.metisMenu.js"&gt;&lt;/script&gt;
+		&lt;!-- DATA TABLE SCRIPTS --&gt;
+		&lt;script src="assets/js/dataTables/jquery.dataTables.js"&gt;&lt;/script&gt;
+		&lt;script src="assets/js/dataTables/dataTables.bootstrap.js"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			$(document).ready(function() {
+				$('#dataTables-example').dataTable();
+
+			});
+
+			function search() {
+				if($("#searchfield").val()==""){
+			alert("กรุณาใส่ข้อความ");
+			
+			return;
+		
+		}
+		$.ajax({
+		url : "http://localhost/webdev/menu_search/menuitem.json#",
+		success : function(result) {
+						alert("ok");
+					
+					},
+					error : function(e) {
+						//alert("error");
+					}
+				});
+	
+
+			}
+
+		&lt;/script&gt;
+		&lt;!-- CUSTOM SCRIPTS --&gt;
+
+	
+
+&lt;/body&gt;&lt;canvas id="fxdriver-screenshot-canvas" style="display: none;" width="893" height="1310"&gt;&lt;/canvas&gt;&lt;/html&gt;</msg>
+<kw type="kw" name="Selenium2Library.Capture Page Screenshot">
+<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
+<arguments>
+</arguments>
+<msg timestamp="20140507 16:38:34.436" html="yes" level="INFO">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-5.png"&gt;&lt;img src="selenium-screenshot-5.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" endtime="20140507 16:38:34.436" starttime="20140507 16:38:34.315"></status>
+</kw>
+<msg timestamp="20140507 16:38:34.436" level="FAIL">Cell in table 'table_searchresult' in row #3 and column #2 should have contained text 'ยำวุ้นเส้น'.</msg>
+<status status="FAIL" endtime="20140507 16:38:34.436" starttime="20140507 16:38:34.168"></status>
+</kw>
+<doc></doc>
+<tags>
+</tags>
+<status status="FAIL" endtime="20140507 16:38:34.437" critical="yes" starttime="20140507 16:38:34.167">Cell in table 'table_searchresult' in row #3 and column #2 should have contained text 'ยำวุ้นเส้น'.</status>
+</test>
+<doc></doc>
+<metadata>
+</metadata>
+<status status="FAIL" endtime="20140507 16:38:34.440" starttime="20140507 16:38:25.936"></status>
+</suite>
+<statistics>
+<total>
+<stat fail="3" pass="2">Critical Tests</stat>
+<stat fail="3" pass="2">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat fail="3" pass="2" id="s1" name="Validsearch Inputtext">Validsearch Inputtext</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

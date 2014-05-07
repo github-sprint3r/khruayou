@@ -102,7 +102,7 @@
 									</tr>
 								</thead>
 								<tbody>
-							
+
 								</tbody>
 							</table>
 						</div>
@@ -134,26 +134,29 @@
 			});
 
 			function search() {
-				if($("#searchfield").val()==""){
-			alert("กรุณาใส่ข้อความ");
-			
-			return;
-		
-		}
-	/*	$.ajax({
-		url : "http://localhost/webdev/menu_search/data.json#",
-		success : function(result) {
-			 obj = JSON.parse(result);
+				if ($("#searchfield").val() == "") {
+					alert("กรุณาใส่ข้อความ");
 
-			alert(obj.data);
-					//	alert(result[0].data);
-					
+					return;
+
+				}
+			/*	$.ajax({
+					url : "http://localhost/webdev/menu_search/data.json#",
+					success : function(result) {
+						obj = JSON.parse(result);
+						var data = obj.data
+
+						for (var i = 0; i < data.length; i++) {
+							alert(data[i].);
+						}
+
+						//	alert(result[0].data);
+
 					},
 					error : function(e) {
 						//alert("error");
 					}
 				});
-	
 */
 			}
 
