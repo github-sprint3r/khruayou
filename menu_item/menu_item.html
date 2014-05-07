@@ -127,68 +127,16 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
       <option value="ทอด">ทอด</option>
     </select>
   </p>
-   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                             <th width="8%" align="center">ลำดับ</th>
-                             <th width="80%">รายการ</th>
-                             <th width="12%" align="right">ราคา/หน่วย</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                          <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                       <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                       <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                        <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                         <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                   <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                        <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                         <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                        <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                         <tr class="odd gradeX">
-                                            <td align="center">&nbsp;</td>
-                                            <td class="center">&nbsp;</td>
-                                            <td align="right" class="center"></td>
-                                      </tr>
-                                        
-                                    </tbody>
-                                </table>
+
+  <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+    <tr align="center" valign="middle">
+      <td width="9%"><strong>ลำดับ</strong></td>
+      <td width="78%"><strong>รายการ</strong></td>
+      <td width="13%"><strong>ราคา/หน่วย</strong></td>
+    </tr>
+ 
+  </table>
+
                            </div>
                         </div>
                     </div>
@@ -211,11 +159,23 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
     <!-- METISMENU SCRIPTS -->
     <script src="../assets/js/jquery.metisMenu.js"></script>
      <!-- DATA TABLE SCRIPTS -->
+
     <script src="../assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="../assets/js/dataTables/dataTables.bootstrap.js"></script>
         <script>
+
             $(document).ready(function () {
-                $('#dataTables-example').dataTable();
+                //$('#dataTables-example').dataTable();
+                $.ajax({ 
+                  type: 'GET', 
+                  url: '/backend/menu_item/json', 
+                  dataType: 'json',
+                  success: function (data) { 
+                    $.each(data, function(index, element) {
+                        $('#dataTables-example').append('<tr><td>'+element.id+'</td><td>'+element.name_th+'<br>'+element.name_en+'</td><td>'+element.price+'</td></tr>');
+                    });
+                  }
+                });
             });
     </script>
          <!-- CUSTOM SCRIPTS -->
