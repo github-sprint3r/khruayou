@@ -67,7 +67,7 @@ db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?char
     }
 
     
-    statementQuery, err := db.Prepare("SELECT id,name_th,name_en, price FROM menu_item LIMIT 10")
+    statementQuery, err := db.Prepare("SELECT id,name_th,name_en, price FROM menu_item WHERE cat_id=1 ORDER BY name_th LIMIT 10")
     if err != nil {
         panic(err.Error())
     }
@@ -106,7 +106,7 @@ db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?char
     s = strings.Replace(s, ",]", "]", -1)
 
     fmt.Fprintf(w,s);
-    
+
 }
 
 func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
