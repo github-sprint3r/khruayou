@@ -38,6 +38,8 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
     t.Execute(w, p)
 }
 func main() {
+    http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("/Users/seksan/Workspace/khruayou/assets"))))
     http.HandleFunc("/backend/menu_item", ViewHandler)
     http.ListenAndServe(":8080", nil)
 }
+
