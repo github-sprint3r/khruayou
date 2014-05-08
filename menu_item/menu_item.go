@@ -67,7 +67,7 @@ db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?char
     }
 
     
-    statementQuery, err := db.Prepare("SELECT id,name_th,name_en, price FROM menu_item WHERE cat_id=1 ORDER BY name_th LIMIT 10")
+    statementQuery, err := db.Prepare("SELECT id,name_th,name_en, price FROM menu_item WHERE cat_id=1 ORDER BY name_th")
     if err != nil {
         panic(err.Error())
     }
@@ -89,7 +89,7 @@ db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?char
         fmt.Printf("CID=%d, Namethai=%s, Nameeng=%s, %d \n", id, name_th, name_en, price)
     } 
 */
-    s := "["
+    s := "{ \"data\": ["
     
 
     for rows.Next() {
@@ -98,12 +98,15 @@ db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?char
         var name_en string
         var price int
         rows.Scan(&id, &name_th, &name_en, &price)
-        s += fmt.Sprintf("{\"id\": \"%d\", \"name_th\":\"%s\",\"name_en\":\"%s\",\"price\":\"%d\"},",id, name_th, name_en,price);
+        //s += fmt.Sprintf("{\"id\": \"%d\", \"name_th\":\"%s\",\"name_en\":\"%s\",\"price\":\"%d\"},",id, name_th, name_en,price);
+        s += fmt.Sprintf("{\"id\": \"%d\", \"name\":\"%s <br> %s\",\"price\":\"%d\"},",id, name_th, name_en, price);
     }
 
-    s += "]"
+    s += "]}"
 
     s = strings.Replace(s, ",]", "]", -1)
+
+
 
     fmt.Fprintf(w,s);
 

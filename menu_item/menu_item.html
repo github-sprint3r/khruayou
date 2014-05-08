@@ -56,7 +56,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <a  href="chart.html"><i class="fa fa-bar-chart-o fa-3x"></i> Morris Charts</a>
                     </li>	
                       <li  >
-                        <a class="active-menu"  href="table.html"><i class="fa fa-table fa-3x"></i>Menu Items</a>
+                        <a class="active-menu"  href="/backend/menu_item"><i class="fa fa-table fa-3x"></i>Menu Items</a>
                     </li>
                     <li  >
                         <a  href="form.html"><i class="fa fa-edit fa-3x"></i> Forms </a>
@@ -119,8 +119,8 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <div class="panel-body">
                             <div class="table-responsive">
   <p>หมวดหมู่
-    <label for="catagory"></label>
-    <select name="catagory" id="catagory">
+    <label for="category"></label>
+    <select name="category" id="category">
       <option value="ต้ม" selected="selected">ต้ม</option>
       <option value="ผัด">ผัด</option>
       <option value="แกง">แกง</option>
@@ -129,12 +129,11 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
   </p>
 
   <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-    <tr align="center" valign="middle">
-      <td width="9%"><strong>ลำดับ</strong></td>
-      <td width="78%"><strong>รายการ</strong></td>
-      <td width="13%"><strong>ราคา/หน่วย</strong></td>
-    </tr>
- 
+    <thead align="center" valign="middle">
+        <th width="9%"><strong>ลำดับ</strong></th>
+        <th width="78%"><strong>รายการ</strong></th>
+        <th width="13%"><strong>ราคา/หน่วย</strong></th>
+   </thead>
   </table>
 
                            </div>
@@ -165,8 +164,26 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
         <script>
 
             $(document).ready(function () {
-                //$('#dataTables-example').dataTable();
-                $.ajax({ 
+                $('#dataTables-example').dataTable({
+                  "fnDrawCallback": function ( oSettings ) {
+      /* Need to redo the counters if filtered or sorted */
+      if ( oSettings.bSorted || oSettings.bFiltered )
+      {
+        for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+        {
+          $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+        }
+      }
+    },
+                  "ajax": "/backend/menu_item/json",
+                  'iDisplayLength': 20,
+                  "columns": [
+                      {"data": "id"},
+                      { "data": "name" },
+                      { "data": "price" },
+                  ]
+                });
+                /*$.ajax({ 
                   type: 'GET', 
                   url: '/backend/menu_item/json', 
                   dataType: 'json',
@@ -175,7 +192,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         $('#dataTables-example').append('<tr><td>'+element.id+'</td><td>'+element.name_th+'<br>'+element.name_en+'</td><td>'+element.price+'</td></tr>');
                     });
                   }
-                });
+                });*/
             });
     </script>
          <!-- CUSTOM SCRIPTS -->
