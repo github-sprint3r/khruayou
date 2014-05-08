@@ -2,6 +2,8 @@
 
 Resource          menu_item/menu_item_dropdown_tom.txt
 Resource          menu_category/menu_category_list.txt
+Resource          menu_search/menusearch_emptyinput.txt
+Resource          menu_search/menusearch_validinput.txt
 
 *** Test Cases ***
 จัดการเมนู เลือก dropdown ต้ม
@@ -13,4 +15,18 @@ Resource          menu_category/menu_category_list.txt
 จัดการหมวดหมู่ แสดงรายการหมวดหมู่
     เปิดบราวเซอร์ไปยังหน้าหมวดหมู่
     รายการหมวดหมู่ควรจะเปิดขี้น
+    [Teardown]    Close Browser
+
+ค้นหาเมนูโดยไม่ใส่ข้อความ
+    Open Browser To menu_search
+    Title is Menu_Search
+    Fill in empty text and press button
+    Alert message show in menu_search
+    [Teardown]    Close Browser
+    
+ค้นหาเมนูโดยใส่เมนูยำวุ้นเส้น
+    Open Browser To menu_search
+    Check Title is Menu_Search
+    Fill in ยำวุ้นเส้น to search and press button
+    Valid menu_search results
     [Teardown]    Close Browser
