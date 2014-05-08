@@ -3,7 +3,7 @@ Library           Selenium2Library
 
 *** Keywords ***
 Open Browser To menu_search
-    Open Browser    http://119.59.97.11/backend/menu_search/menu_search.html    Firefox   
+    Open Browser    http://119.59.97.11/backend/menu_search/menusearch.html    Firefox   
 Title is Menu_Search
     Title Should Be    Menu_Search
 Fill in empty text and press button
