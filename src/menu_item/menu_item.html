@@ -120,7 +120,7 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                             <div class="table-responsive">
   <p>หมวดหมู่
     <label for="category"></label>
-    <select name="category" id="category" onchange="changeCategory()">
+    <select name="category" id="category">
       <option value="1" selected="selected">ต้ม</option>
       <option value="2">ผัด</option>
       <option value="3">แกง</option>
@@ -166,15 +166,15 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
             $(document).ready(function () {
                 $('#dataTables-example').dataTable({
                   "fnDrawCallback": function ( oSettings ) {
-      /* Need to redo the counters if filtered or sorted */
-      if ( oSettings.bSorted || oSettings.bFiltered )
-      {
-        for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
-        {
-          $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
-        }
-      }
-    },
+                /* Need to redo the counters if filtered or sorted */
+                if ( oSettings.bSorted || oSettings.bFiltered )
+                {
+                  for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                  {
+                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
+                  }
+                }
+              },
                   "ajax": "/backend/menu_item/json",
                   'iDisplayLength': 20,
                   "columns": [
@@ -183,17 +183,31 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                       { "data": "price" },
                   ]
                 });
-                /*$.ajax({ 
-                  type: 'GET', 
-                  url: '/backend/menu_item/json', 
-                  dataType: 'json',
-                  success: function (data) { 
-                    $.each(data, function(index, element) {
-                        $('#dataTables-example').append('<tr><td>'+element.id+'</td><td>'+element.name_th+'<br>'+element.name_en+'</td><td>'+element.price+'</td></tr>');
-                    });
+                      
+      $('#category').on('change', function() {
+                 $('#dataTables-example').dataTable().fnDestroy();
+                $('#dataTables-example').dataTable({
+                  "fnDrawCallback": function ( oSettings ) {
+                /* Need to redo the counters if filtered or sorted */
+                if ( oSettings.bSorted || oSettings.bFiltered )
+                {
+                  for ( var i=0, iLen=oSettings.aiDisplay.length ; i<iLen ; i++ )
+                  {
+                    $('td:eq(0)', oSettings.aoData[ oSettings.aiDisplay[i] ].nTr ).html( i+1 );
                   }
-                });*/
+                }
+              },
+                  "ajax": "/backend/menu_item/json?id="+ this.value,
+                  'iDisplayLength': 20,
+                  "columns": [
+                      {"data": "id"},
+                      { "data": "name" },
+                      { "data": "price" },
+                  ]
+                });
             });
+
+      });
     </script>
          <!-- CUSTOM SCRIPTS -->
     <script src="/assets/js/custom.js"></script>
