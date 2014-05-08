@@ -1,9 +1,9 @@
 package menu_item
 
 import (
-	"html/template"
-	"io/ioutil"
-	"net/http"
+    "html/template"
+    "io/ioutil"
+    "net/http"
     "fmt"
     "strings"
 )
@@ -22,22 +22,22 @@ type MenuItem struct {
 }
 
 type Page struct {
-	Title string
-	Body  []byte
+    Title string
+    Body  []byte
 }
 
 func (p *Page) save() error {
-	filename := p.Title + ".txt"
-	return ioutil.WriteFile(filename, p.Body, 0600)
+    filename := p.Title + ".txt"
+    return ioutil.WriteFile(filename, p.Body, 0600)
 }
 
 func loadPage(title string) (*Page, error) {
-	filename := title + ".txt"
-	body, err := ioutil.ReadFile(filename)
-	if err != nil {
-		return nil, err
-	}
-	return &Page{Title: title, Body: body}, nil
+    filename := title + ".txt"
+    body, err := ioutil.ReadFile(filename)
+    if err != nil {
+        return nil, err
+    }
+    return &Page{Title: title, Body: body}, nil
 }
 
 func HomeHandler(w http.ResponseWriter, r *http.Request) {
@@ -53,7 +53,12 @@ func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 func JsonHandler(w http.ResponseWriter, r *http.Request) {
 
-db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?charset=utf8")
+    category_id := r.URL.Query().Get("id")
+
+    if category_id == "" {
+        category_id = "1"
+    }
+    db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?charset=utf8")
     defer db.Close()
 
     if err != nil {
@@ -67,7 +72,7 @@ db, err := sql.Open("mysql", "root:1q2w3e4r@tcp(119.59.97.11:3306)/KhruaYou?char
     }
 
     
-    statementQuery, err := db.Prepare("SELECT id,name_th,name_en, price FROM menu_item WHERE cat_id=1 ORDER BY name_th")
+    statementQuery, err := db.Prepare("SELECT id,name_th,name_en, price FROM menu_item WHERE cat_id="+ category_id +" ORDER BY name_th")
     if err != nil {
         panic(err.Error())
     }

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Free Bootstrap Admin Template : Binary Admin</title>
+		<!-- BOOTSTRAP STYLES-->
+		<link href="assets/css/bootstrap.css" rel="stylesheet" />
+		<!-- FONTAWESOME STYLES-->
+		<link href="assets/css/font-awesome.css" rel="stylesheet" />
+		<!-- MORRIS CHART STYLES-->
+
+		<!-- CUSTOM STYLES-->
+		<link href="assets/css/custom.css" rel="stylesheet" />
+		<!-- GOOGLE FONTS-->
+		<!-- TABLE STYLES-->
+		<link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+        
+        	<script src="assets/js/jquery-1.10.2.js"></script>
+		<!-- BOOTSTRAP SCRIPTS -->
+		<script src="assets/js/bootstrap.min.js"></script>
+		<!-- METISMENU SCRIPTS -->
+		<script src="assets/js/jquery.metisMenu.js"></script>
+		<!-- DATA TABLE SCRIPTS -->
+		<script src="assets/js/dataTables/jquery.dataTables.js"></script>
+		<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
+		<script>
+			var jsonObj;
+		
+			function initJSON()
+			{
+				$.getJSON("/api", function(json){
+						
+					jsonObj = json;
+				});
+						
+			}
+			
+			
+			
+			$(document).ready(function() {
+				$('#dataTables-example').dataTable();
+
+
+			
+			});
+
+			function getCatFromID(cat_id)
+			{
+				var c = Array('ต้ม','ผัด','แกง','ทอด');
+				return c[cat_id-1];
+			}
+			
+			function watermark(str)
+			{
+				if(str == "กรุณาใส่ข้อความ")
+					document.getElementById('searchfields').value = "";
+				else
+				{
+					
+				}
+			}
+			function search(str) {
+
+				if(str.length < 1) 
+				{
+					document.getElementById('searchfields').value = "กรุณาใส่ข้อความ";
+					alert("กรุณาใส่ข้อความ");
+					return;
+				}
+				
+				var length = jsonObj.length; 
+				
+				var output = '<table class="table table-striped table-bordered table-hover" id="table_searchresult"><thead><tr ><th width="10%"><center>ลำดับ<BR>No.</center></th><th width="60%"><div style="text-align: center; ">ชื่ออาหาร<BR>Food Name</div></th><th width="10%"><center>ประเภท<BR>Category</center></th><th width="20%"><center>ราคา<BR>Prices</center></th></tr></thead><tbody>';
+				var countRows = 0;
+				
+				for (var i = 0; i < length; i++) 
+				{
+				  			if(jsonObj[i].name_th.indexOf(str) > -1 || jsonObj[i].name_en.indexOf(str) > -1)
+							{
+								countRows++;
+								output += '<tr><td><center>'+countRows+'</center></td>';
+								output += '<td>'+jsonObj[i].name_th+'<BR>'+jsonObj[i].name_en+'</td>';
+								output += '<td><center>'+getCatFromID(jsonObj[i].cat_id)+'</center></td>';
+								output += '<td><center>'+jsonObj[i].price+'  บาท / '+jsonObj[i].unit+'</center></td></tr>';
+							}
+				}
+
+					output += "</tbody></table>";	
+					
+					if(countRows >= 1)
+						document.getElementById("htmlOutput").innerHTML =  "<h3>เจอรายการอาหาร "+countRows+" รายการ</h3><BR>"+output; 
+				
+								
+					if(countRows < 1)
+					{
+						alert("ไม่พบรายการอาหาร");
+						return false;
+						//document.getElementById("htmlOutput").innerHTML = "ไม่พบรายการอาหาร";
+						
+					}
+					
+						
+			}
+
+		</script>
+        
+	</head>
+	<body onLoad="initJSON()">
+		<div id="wrapper">
+			<nav class="navbar navbar-default navbar-cls-top " role="navigation" style="margin-bottom: 0">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">KhruaYou</a>
+				</div>
+				<div style="color: white;
+				padding: 15px 50px 5px 50px;
+				float: right;
+				font-size: 16px;">
+					Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
+				</div>
+			</nav>
+			<!-- /. NAV TOP  -->
+			<nav class="navbar-default navbar-side" role="navigation">
+				<div class="sidebar-collapse">
+					<ul class="nav" id="main-menu">
+						<li class="text-center">
+							<img src="assets/img/find_user.png" class="user-image img-responsive"/>
+						</li>
+
+						<li>
+							<a  href="menusearch.html"><i class="fa fa-dashboard fa-3x"></i> menu list</a>
+						</li>
+					</ul>
+
+				</div>
+
+			</nav>
+			<!-- /. NAV SIDE  -->
+			<div id="page-wrapper" >
+				<div id="page-inner">
+					<div class="row">
+						<div class="col-md-12">
+							<h2>ค้นหารายการอาหาร</h2>
+
+						</div>
+					</div>
+					<!-- /. ROW  -->
+					<hr />
+					<div class="row">
+						<div class="col-md-12">
+							<input type="text"  id="searchfields" class="input-lg" name="searchfields" value="กรุณาใส่ข้อความ" onClick="watermark(document.getElementById('searchfields').value)" />
+							<input type="button" id="search_button" onclick="search(document.getElementById('searchfields').value)" class="btn-lg" value="ค้นหา"/>
+						</div>
+					</div>
+					<div class="row" style="height: 20px"></div>
+
+					<div class="row">
+
+<<<<<<< HEAD:html/menu_search/menusearch.html
+						<div class="col-lg-12" id="htmlOutput">
+						
+=======
+						<div class="col-lg-12">
+							<table id= "table_searchresult" class="table table-striped table-bordered table-hover" >
+								<thead>
+									<tr >
+										<th width="10%" >
+										<center>
+											No.
+										</center></th>
+										<th width="50%">
+										<div style="text-align: center; ">
+											ชื่ออาหาร
+										</div></th>
+										<th>
+										<center>
+											หมวดหมู่อาหาร
+										</center></hr>
+										<center>
+											Catalogeries
+										</center></th>
+										<th>
+										<center>
+											ราคา
+										</center></hr>
+										<center>
+											Prices
+										</center></th>
+									</tr>
+								</thead>
+								<tbody>
+
+								</tbody>
+							</table>
+>>>>>>> b40a424dd6ebf4db89c3d51ee4319a5896976180:src/menu_search/menusearch.html
+						</div>
+					</div>
+
+				</div>
+				<!-- /. ROW  -->
+			</div>
+
+		</div>
+		<!-- /. PAGE INNER  -->
+		</div>
+		<!-- /. PAGE WRAPPER  -->
+		<!-- /. WRAPPER  -->
+		<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+		<!-- JQUERY SCRIPTS -->
+	
+		<!-- CUSTOM SCRIPTS -->
+
+	</body>
+</html>
