@@ -5,9 +5,6 @@ Resource          menu_category/menu_category_list.txt
 Resource          menu_search/menusearch_emptyinput.txt
 Resource          menu_search/menusearch_validinput.txt
 
-
-
-
 *** Test Cases ***
 จัดการเมนู เลือก dropdown ต้ม
     เปิดบราวเซอร์ไปยังหน้าเมนู
