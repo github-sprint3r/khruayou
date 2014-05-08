@@ -1,0 +1,10 @@
+*** Settings ***
+
+Resource          menu_item/menu_item_dropdown_tom.txt
+
+*** Test Cases ***
+จัดการเมนู เลือก dropdown ต้ม
+    เปิดบราวเซอร์ไปยังหน้าเมนู
+    รายการเมนูควรจะเปิดขึ้น
+    เลือก combobox category เป็นต้ม
+    [Teardown]    Close Browser
