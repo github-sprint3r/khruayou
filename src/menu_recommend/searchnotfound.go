@@ -1,11 +1,11 @@
-package main
+package searchnotfound
 
 import (
     "fmt"
     "net/http"
 )
 
-func main() {
+func HomeHandler() {
     http.HandleFunc("/", addHanler)
     http.ListenAndServe(":8080", nil)
 }

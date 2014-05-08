@@ -1,4 +1,4 @@
-package main
+package menu_search
 
 import (
 	"html/template"
@@ -25,7 +25,7 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
-func ViewHandler(w http.ResponseWriter, r *http.Request) {
+func viewHandler(w http.ResponseWriter, r *http.Request) {
     title := r.URL.Path[len("/backend/menu_item"):]
     p, err := loadPage(title)
     if err != nil {
@@ -37,9 +37,9 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
     t, _ := template.ParseFiles(tmpl + ".html")
     t.Execute(w, p)
 }
-func main() {
+/*func main() {
     http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("/Users/seksan/Workspace/khruayou/assets"))))
     http.HandleFunc("/backend/menu_item", ViewHandler)
     http.ListenAndServe(":8080", nil)
-}
+}*/
 

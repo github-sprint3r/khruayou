@@ -40,7 +40,7 @@ func loadPage(title string) (*Page, error) {
 	return &Page{Title: title, Body: body}, nil
 }
 
-func ViewHandler(w http.ResponseWriter, r *http.Request) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
     title := r.URL.Path[len("/backend/menu_item"):]
     p, err := loadPage(title)
@@ -119,7 +119,7 @@ func renderTemplate(w http.ResponseWriter, tmpl string, p *Page) {
 
 func main() {
     http.Handle("/assets/", http.StripPrefix("/assets/", http.FileServer(http.Dir("/Users/seksan/Workspace/khruayou/assets"))))
-    http.HandleFunc("/backend/menu_item", ViewHandler)
+    http.HandleFunc("/backend/menu_item", HomeHandler)
     http.HandleFunc("/backend/menu_item/json", JsonHandler)
     http.ListenAndServe(":8080", nil)
 }

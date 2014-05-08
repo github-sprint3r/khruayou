@@ -1,4 +1,4 @@
-package main
+package menu_category
 
 import (
 	"database/sql"
@@ -14,12 +14,12 @@ import (
 	})
 }*/
 
-func addcatalogHandler(w http.ResponseWriter, r *http.Request) {
+/*func addcatalogHandler(w http.ResponseWriter, r *http.Request) {
 	t, _ := template.ParseFiles("Add_Catalog_New.html")
 	t.Execute(w, map[string]interface{}{
 		"project_name": "MY DATA",
 	})
-}
+}*/
 
 type Management struct {
 	CID      int
@@ -27,7 +27,7 @@ type Management struct {
 	NameEng  string
 }
 
-func maincatalogHandler(w http.ResponseWriter, r *http.Request) {
+func HomeHandler(w http.ResponseWriter, r *http.Request) {
 
 	var CID int
 	var NameThai string
@@ -63,17 +63,16 @@ func maincatalogHandler(w http.ResponseWriter, r *http.Request) {
 	})
 }
 
-func makeHandler(fn func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
+/*func makeHandler(fn func(http.ResponseWriter, *http.Request)) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
 		fn(w, r)
 	}
-}
+}*/
 
 func main() {
 	http.Handle("/assets/", http.FileServer(http.Dir(".")))
 	//http.HandleFunc("/", makeHandler(homeHandler))
-	http.HandleFunc("/", makeHandler(maincatalogHandler))
-	http.HandleFunc("/Add_Catalog_New", makeHandler(addcatalogHandler))
+	http.HandleFunc("/", makeHandler(HomeHandler))
+	//http.HandleFunc("/Add_Catalog_New", makeHandler(addcatalogHandler))
 	http.ListenAndServe(":8080", nil)
-
 }
