@@ -1,4 +1,4 @@
-package main
+package menu_item
 
 import (
 	"html/template"
